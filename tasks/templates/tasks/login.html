@@ -1,0 +1,33 @@
+{% extends 'tasks/main.html' %}
+
+{% block content %}
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center justify-content-center h-100 ">
+        <div class="col col-lg-9 col-xl-7">
+          <div class="card rounded-3">
+            <div class="card-body p-4">
+              <form method="POST" class="d-flex flex-column row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                    {% csrf_token %}
+                    <div>
+                        <label for='username'>Username:</label>
+                        <input type="text" name='username' id="username" required>
+                    </div>
+
+                    <div>
+                        <label for="password">Login:</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+
+                    <input class="btn btn-danger" type="submit" value="Login">
+                    <p>don't have an account</p>
+                    <a href="{% url 'register' %}" class="btn btn-info">Register</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
+
